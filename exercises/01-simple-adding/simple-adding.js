@@ -5,7 +5,14 @@
  the parameter num will be any number from 1 to 1000. 
  */
 
-function simpleAdding(num) {}
+function simpleAdding(num) {
+  var i;
+  var total = 0;
+  for (i = 0; i <= num; i++) {
+    total = total + i
+  }
+  return total;
+}
 
 module.exports = {
   simpleAdding

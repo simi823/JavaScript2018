@@ -4,7 +4,11 @@
  * @param  {[string]}  string
  * @return {Boolean}
  */
-function isPalindrome(str) {}
+
+function isPalindrome(str) {
+  return str == str.replace(/[^\w\s]/gi, '').split('').reverse().join('');
+}
+
 
 module.exports = {
   isPalindrome
