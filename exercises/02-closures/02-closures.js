@@ -9,7 +9,16 @@
 function updateCounter() {
   var counter = 0;
   return {
-    add: function() {},
-    retreive: function() {}
+    add: function(num) {
+      counter =+ num;
+    },
+    retrieve: function() {
+      return counter;
+    }
   };
 }
+
+var update = updateCounter();
+
+update.add(5);
+console.log(update.retrieve());
