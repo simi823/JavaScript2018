@@ -9,7 +9,9 @@ var instructorNames = ["Jamal", "Matina", "Eddy"];
  *  - Eddy
  * @param {string} name instuctor name
  */
-function printer() {}
+function printer(name) {
+  console.log(" - " + name);
+}
 
 /**
  * Loops through the array of `instructorNames`
@@ -17,7 +19,11 @@ function printer() {}
  * @param {array} instructorNames
  * @param {function} callback printer function
  */
-function printNames() {}
+function printNames(arrayOfNames, callbackFunc) {
+  for (var i = 0; i < arrayOfNames.length; i++) {
+    callbackFunc(arrayOfNames[i]);
+  }
+}
 
 module.exports = {
   printer,

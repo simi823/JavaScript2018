@@ -4,7 +4,11 @@
  * @param {array} arr
  * @param {function} callback
  */
-function forEach(arr, callback) {}
+function forEach(arr, callback) {
+  for (var i=0; i < arr.length; i++) {
+    callback(arr[i], i, arr);
+  }
+}
 
 /**
  * Given an array of strings, remove all letters of each value except the first and last character in the strings
