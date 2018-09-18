@@ -28,6 +28,10 @@ describe("testing the functionalitly of forEach", () => {
     expect(suppliedArr).to.be.equalTo([1, 2, 3]);
     expect(numbersDoubled).to.be.equalTo([2, 4, 6]);
   });
+  it("doubleValues should double values given", () => {
+    const doubleNumbers = doubleValues([1, 2, 3]);
+    expect(doubleNumbers).to.be.equalTo([2, 4, 6]);
+  });
   it("showFirstAndLast should print only the first and last letter of a string", () => {
     const abbreviatedName = showFirstAndLast(["colt", "matt", "tim", "udemy"]);
     expect(abbreviatedName).to.be.equalTo(["ct", "mt", "tm", "uy"]);
