@@ -6,7 +6,13 @@
  *  addItems([1,5,6]) // 12
  *  addItems([1,-2,-3]) // -4
  */
-function addItems(arr) {}
+function addItems(arr) {
+  var sum = 0;
+  arr.forEach(function(num) {
+    sum += num;
+  })
+  return sum
+}
 
 /**
  * Create a function that tallies the number of each kind of "thing" within the array
@@ -16,14 +22,36 @@ function addItems(arr) {}
  *   var fruits = ['Apple', 'Orange', 'Apple', 'Blueberry', 'Grape', 'Grape'];
  *   generateTally(generateTally); // {Apple: 2, Orange: 1, Blueberry: 1, Grape: 2}
  */
-function generateTally(array) {}
+function generateTally(array) {
+  var thingObj = {};
+  array.forEach(function(item) {
+    if (thingObj.hasOwnProperty(item)) {
+      thingObj[item] += 1;
+    } else {
+      thingObj[item] = 1;
+    }
+  });
+  return thingObj;
+}
 
 /**
  * Create a function that flattens an array (that is, it should "unnest" a nested array).
  * @param {array} arr e.g. `[[1, 3], [5, 10]]`
  * @returns {array} new, flattened array e.g. `[1, 3, 5, 10]`
  */
-function flattenArray(arr) {}
+function flattenArray(arr) {
+  var newArray = [];
+  arr.forEach(function (item, index, arr) {
+    if (Array.isArray(item)) {
+      item.forEach(function (num) {
+        newArray.push(num);
+      });
+    } else {
+      newArray.push(item);
+    }
+  });
+  return newArray;
+}
 
 /**
  * Create a function, that when given an array of object literals, will index the object literals by a single column
@@ -36,7 +64,7 @@ function flattenArray(arr) {}
  *
  * var people = [
  *  {id: 123, name: 'Dave', age: 23},
- *  {id, 456, name: 'Rachel', age: 35}
+ *  {id: 456, name: 'Rachel', age: 35}
  * ];
  *
  * var result =  arrayToObject();
@@ -44,10 +72,20 @@ function flattenArray(arr) {}
  * // result should be:
  * {
  *   123: {id: 123, name: 'Dave', age: 23},
- *   456: {id, 456, name: 'Rachel', age: 35}
+ *   456: {id: 456, name: 'Rachel', age: 35}
  * }
  */
-function arrayToObject(arr) {}
+function arrayToObject(arr) {
+  var newObj = new Object();
+  arr.forEach(function (item) {
+    newObj[item.id] = item;
+  });
+  var sortedObject = new Object();
+  Object.keys(newObj).sort().forEach(function (v, i) {
+    sortedObject[v] = newObj[v];
+  });
+  return sortedObject;
+}
 
 module.exports = {
   addItems,
