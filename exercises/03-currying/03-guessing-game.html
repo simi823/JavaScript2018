@@ -58,6 +58,29 @@ game2(1) // "You are all done playing!" -->
              * @param {number} numberOfTries the number of guesses the user gets before they lose
              */
             function GuessingGame(numberOfTries) {
+                var answer = 3;
+                var attemptedTries = 0;
+                var result;
+
+                return function guessCheck(guess) {
+                    console.log("attemptedTries " + attemptedTries);
+                    console.log("numberOfTries " + numberOfTries);
+                    while (attemptedTries < numberOfTries) {
+                        attemptedTries++;
+                        if (guess == answer) {
+                            return "You got it!";
+                        } if (guess < answer) {
+                            return "Your guess is too low!";
+                        } else if (guess > answer) {
+                            return "Your guess is too high!";
+                        } else {
+                            return "You are all done playing!";
+                        }
+                    }
+                    if (attemptedTries == numberOfTries) {
+                        return "No more guesses the answer was " + answer;
+                    }
+                }
             }
 
             var form = document.forms[0];

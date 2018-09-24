@@ -24,7 +24,23 @@
  *  guessRound2(1) // "No more guesses the answer was 0"
  *  guessRound2(1) // "You are all done playing!"
  */
-function guessingGame() {}
+function guessingGame(num) {
+  var answer = Math.floor(Math.random() * 10);
+  console.log(answer);
+  var guesses = 0;
+  return function guessCheck(guess) {
+    if (guess > answer) {
+      console.log("Your guess is too high!");
+    } else if (guess < answer) {
+      console.log("Your guess is too low!");
+    } else if (guess == answer) {
+      console.log("You got it!");
+    } else {
+      console.log("No more guesses the answer was 0");
+    }
+    guesses++;
+  }
+}
 
 module.exports = {
   guessingGame
