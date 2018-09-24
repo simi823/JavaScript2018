@@ -18,7 +18,11 @@ function addItems(arr) {
  * @param {array} array e.g. `[[1, 3], [5, 10]]`
  * @returns {array} new, flattened array e.g. `[1, 3, 5, 10]`
  */
-function flattenArray(array) {}
+function flattenArray (arr) {
+  return arr.reduce(function (total, amount) {
+    return total.concat(amount)
+  }, [])
+}
 
 /**
  * Create a function that tallies the number of each kind of "thing" within the array

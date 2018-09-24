@@ -41,7 +41,7 @@ describe("testing the functionalitly of Reduce", () => {
     const flat = flattenArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
     expect(flat).to.be.equalTo([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   });
-  it.only("arrayToObject should transform and array of objects to accessible via id", () => {
+  it("arrayToObject should transform and array of objects to accessible via id", () => {
     const peopleArray = [
       { id: 123, name: "dave", age: 23 },
       { id: 456, name: "chris", age: 23 },
