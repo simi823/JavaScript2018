@@ -72,3 +72,4 @@ Thumbs.db
 
 # misc
 package-lock.json
+exercises/04-reduce/reduce_simi.js

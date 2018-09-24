@@ -7,11 +7,10 @@
  *  addItems([1,-2,-3]) // -4
  */
 function addItems(arr) {
-  var sum = 0;
-  arr.forEach(function(num) {
-    sum += num;
-  })
-  return sum
+  var sum = arr.reduce(function (total, num) {
+    return total + num;
+  }, 0);
+  return sum;
 }
 
 /**
@@ -20,18 +19,13 @@ function addItems(arr) {
  * @returns {object} where the thing name is the key and the tally is the value
  * @example
  *   var fruits = ['Apple', 'Orange', 'Apple', 'Blueberry', 'Grape', 'Grape'];
- *   generateTally(generateTally); // {Apple: 2, Orange: 1, Blueberry: 1, Grape: 2}
+ *   generateTally(fruits); // {Apple: 2, Orange: 1, Blueberry: 1, Grape: 2}
  */
 function generateTally(array) {
-  var thingObj = {};
-  array.forEach(function(item) {
-    if (thingObj.hasOwnProperty(item)) {
-      thingObj[item] += 1;
-    } else {
-      thingObj[item] = 1;
-    }
-  });
-  return thingObj;
+  return array.reduce(function (accumulator, fruit) {
+    accumulator[fruit] = accumulator[fruit] ? accumulator[fruit] += 1 : 1;
+    return accumulator;
+  }, {});
 }
 
 /**
@@ -40,17 +34,9 @@ function generateTally(array) {
  * @returns {array} new, flattened array e.g. `[1, 3, 5, 10]`
  */
 function flattenArray(arr) {
-  var newArray = [];
-  arr.forEach(function (item, index, arr) {
-    if (Array.isArray(item)) {
-      item.forEach(function (num) {
-        newArray.push(num);
-      });
-    } else {
-      newArray.push(item);
-    }
-  });
-  return newArray;
+  return arr.reduce(function (total, amount) {
+    return total.concat(amount);
+  }, []);
 }
 
 /**
@@ -75,17 +61,13 @@ function flattenArray(arr) {
  *   456: {id: 456, name: 'Rachel', age: 35}
  * }
  */
-function arrayToObject(arr) {
-  var newObj = new Object();
-  arr.forEach(function (item) {
-    newObj[item.id] = item;
-  });
-  var sortedObject = new Object();
-  Object.keys(newObj).sort().forEach(function (v, i) {
-    sortedObject[v] = newObj[v];
-  });
-  return sortedObject;
+function arrayToObject(array) {
+  return array.reduce(function (obj, person) {
+    obj[person.id] = person;
+    return obj;
+  }, {});
 }
+
 
 module.exports = {
   addItems,
