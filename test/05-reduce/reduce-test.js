@@ -57,16 +57,6 @@ describe("testing the functionalitly of Reduce", () => {
       102: { id: 102, name: "tim", age: 23 }
     };
     const arrOfObj = arrayToObject(peopleArray);
-<<<<<<< HEAD:test/04-reduce/reduce-test.js
-    expect(arrOfObj).to.deep.equal({
-      "101": { id: 101, name: "tom", age: 23 },
-      "102": { id: 102, name: "tim", age: 23 },
-      "123": { id: 123, name: "dave", age: 23},
-      "456": { id: 456, name: "chris", age: 23 },
-      "789": { id: 789, name: "bob", age: 23 },
-    });
-=======
     expect(arrOfObj).to.deep.equal(peopleObject);
->>>>>>> 8adb6599189ccff85869ec4adabe7844c6d29c8d:test/05-reduce/reduce-test.js
   });
 });
