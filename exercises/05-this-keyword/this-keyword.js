@@ -11,7 +11,7 @@ var car = {
     return this.brand;
   }
 };
-var getCarBrand = car.getBrand;
+var getCarBrand = car.getBrand.bind(car)
 
 /**
  * Change the code below so that when I do this:
@@ -26,7 +26,7 @@ var motorcycle = {
     var closure = function() {
       return this.brand;
     };
-    return closure();
+    return closure.call(motorcycle);
   }
 };
 
