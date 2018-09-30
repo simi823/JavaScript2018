@@ -8,16 +8,16 @@
  * @method get return another function to display the counter variable
  *
  */
-function Counter(startValue) {
-  var counter = startValue || 0;
-  return {
-    add: function(num) {
-      counter += num;
-    },
-    get: function() {
-      return counter;
-    }
-  };
+class Counter {
+  constructor(startValue=0) {
+    this.counter = startValue;
+  }
+  add(num) {
+    this.counter += num;
+  }
+  get() {
+    return this.counter;
+  }
 }
 
 /**
@@ -26,7 +26,15 @@ function Counter(startValue) {
  * @method substract which should accept a parameter of type number. The function should subtract the parameter from the counter
  */
 
+class Decrementor extends Counter {
+  constructor(startValue) {
+    super(startValue);
+  }
+  subtract(num) {
+    this.counter -= num;
+  }
+}
 module.exports = {
-  Counter
-  // Export Decrementor here
+  Counter,
+  Decrementor
 };

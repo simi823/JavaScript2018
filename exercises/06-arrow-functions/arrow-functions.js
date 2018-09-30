@@ -6,7 +6,7 @@
  * @param {number} b
  * @returns {number} the sum of `a` plus `b`
  */
-let add = (a, b) => a + b
+let add = (a, b) => a + b;
 
 /**
  * Refactor the following to use ES6 arrow syntax.
@@ -16,9 +16,8 @@ let add = (a, b) => a + b
  * are divisibile by 5
  */
 let tripleAndFilter = (arr) => arr
-  .map((value) => value * 3)
-  .filter((value) => value % 5 === 0);
-
+    .map((value) => value * 3)
+    .filter((value) => value % 5 === 0);
 /**
  * Refactor the following to use ES6 arrow syntax.
  * Make sure your refactored function is still called "doubleOddNumbers".
@@ -27,8 +26,8 @@ let tripleAndFilter = (arr) => arr
  * new array of numbers is doubled
  */
 let doubleOddNumbers = (arr) => arr
-  .filter((val) => val % 2 !== 0)
-  .map((val) => val * 2);
+    .filter((val) => val % 2 !== 0)
+    .map((val) => val * 2);
 
 /**
  * Refactor the following to use ES6 arrow syntax and let declarations.
@@ -38,11 +37,11 @@ let doubleOddNumbers = (arr) => arr
  * @see https://jsbin.com/teroruyege/2/edit?js,console
  */
 let sayNameLaterObj = {
-  name: 'Jamal',
+  name: "Jamal",
   sayLater: () => {
     setTimeout(() => {
-      console.log(this.name)
-    }, 1000)
+      console.log(this.name);
+    }, 1000);
   }
 };
 
