@@ -61,8 +61,8 @@ let process = (guestNetwork, lobbyNetwork, staffNetwork) => {
   // The first object copied will be guestNetworkStatus
   // The second object copied will be constructed with object shorthand
   guestNetworkStatus = Object.assign(guestNetworkStatus, {
-    lastPinged: lastPinged,
-    uptime: uptime,
+    lastPinged,
+    uptime
   });
   console.log(guestNetworkStatus);
 

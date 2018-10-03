@@ -38,7 +38,7 @@ let doubleOddNumbers = (arr) => arr
  */
 let sayNameLaterObj = {
   name: "Jamal",
-  sayLater: () => {
+  sayLater: function () {
     setTimeout(() => {
       console.log(this.name);
     }, 1000);
