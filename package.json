@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/AlbanyCanCodeCourses/JavaScript2018/issues"
   },
-  "homepage": "https://github.com/AlbanyCanCodeCourses/JavaScript2018#readme"
+  "homepage": "https://github.com/AlbanyCanCodeCourses/JavaScript2018#readme",
+  "dependencies": {}
 }
