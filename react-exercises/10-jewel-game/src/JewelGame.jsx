@@ -72,14 +72,14 @@ class JewelGame extends Component {
     newState.count = this.state.count + 1;
     this.setState(newState);
     // console.log(this.state);
-    //this.updateCounter();
+    this.updateCounter();
   };
   updateCounter = () => {
     this.setState((state) => ({ count: state.count + 1 }));
     // console.log(this.state.count);
   };
 	render() {
-    console.log(this.state);
+    // console.log(this.state);
 		return (
 			<main className="JewelGame">
         <Counter count={this.state.count}/>
