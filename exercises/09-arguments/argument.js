@@ -9,7 +9,19 @@
  *
  */
 
-function destroyer(arr) {}
+function destroyer (arr, ...args) {
+  let newArray = []
+  arr.map((value, index, array) => {
+    if (!args.includes(value)) newArray.push(value)
+  })
+  return newArray
+}
+
+// Another way
+// function destroyer (arr, ...args) {
+//   return arr.filter(value => !args.includes(value))
+// }
+
 
 module.exports = {
   destroyer
