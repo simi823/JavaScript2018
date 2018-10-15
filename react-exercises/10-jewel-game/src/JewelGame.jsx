@@ -43,34 +43,55 @@ const jewels = [...Array(35).keys()].map(num => {
 
 // Hint: you can pass down more properties to Jewel
 function Jewel(props) {
-  return (
-    <img
-      src={props.image}
-      className="Jewel"
-      alt=""
-      width="128"
-      height="128"
-      tabIndex="-1"
-      role="button"
-    />
-  );
+  return <img
+    {...props}
+    className="Jewel"
+  />
 }
 
 function Counter(props) {
+  // console.log(props);
   return <div className="Counter">{props.count || 0}</div>;
 }
 
 // Convert this to a React Component Class
-function JewelGame() {
-  return (
-    <main className="JewelGame">
-      <Counter />
-      {jewels.map((jewel, index) => {
-        const key = "jewel-" + index;
-        return <Jewel image={jewel.image} key={key} />;
-      })}
-    </main>
-  );
+class JewelGame extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+      jewels: jewels,
+			isVisible: true,
+			count: 0,
+    };
+	};
+	hideJewel = index => {
+    let newState = Object.assign(jewels);
+    // console.log(this.state.count);
+    // console.log(newState);
+    newState[index].isVisible = false;
+    newState.count = this.state.count + 1;
+    this.setState(newState);
+    // console.log(this.state);
+    //this.updateCounter();
+  };
+  updateCounter = () => {
+    this.setState((state) => ({ count: state.count + 1 }));
+    // console.log(this.state.count);
+  };
+	render() {
+    console.log(this.state);
+		return (
+			<main className="JewelGame">
+        <Counter count={this.state.count}/>
+				{Object.values(this.state.jewels).map((jewelObj, index) => {
+					const key = 'jewel-' + index;
+					return jewelObj.isVisible ? (
+						<Jewel src={jewelObj.image} alt="" key={key} onClick={() => {this.hideJewel(index)}} />
+					) : null;
+				})}
+			</main>
+		);
+	}
 }
 
 export default JewelGame;
