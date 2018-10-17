@@ -8,20 +8,24 @@ import React, { Component } from 'react';
 
 class App extends Component {
   state = {
-    showText: true
+    showText: true,
+    text: "Hide"
   };
 
-  toggleVisibility = () => {};
+  toggleVisibility = () => {
+    console.log(this.state);
+    this.setState({
+      showText: !this.state.showText,
+      text: this.state.text === 'Hide' ? 'Show' : 'Hide'
+    });
+  };
 
   render() {
-    return (
-      <div>
-        <div>
-          <h1>Now you see me!</h1>
-        </div>
-        <button>Click To Hide Text</button>
-      </div>
-    );
+    console.log(this.state);
+    return <div>
+      <button onClick={this.toggleVisibility}>Click To {this.state.text} Text</button>
+			<div>{this.state.showText && <h1>Now you see me!</h1>}</div>
+		</div>;
   }
 }
 

@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 class Forms extends Component {
   render() {
-    return (
-      <div>
-        <form>
-          <textarea type="text" />
-          <button type="submit">Click Me</button>
-        </form>
-      </div>
-    );
+    console.log(this.props)
+    return <div>
+			<form onSubmit={(event) => this.props.handleSubmission(event)}>
+        <textarea type="text" onChange={(event) => this.props.handleOnChange(event)} value={this.props.value} />
+				<button type="submit">Click Me</button>
+			</form>
+		</div>;
   }
 }
 
