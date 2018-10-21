@@ -16,9 +16,11 @@ class App extends React.Component {
     };
   }
   counterIncrement = () => {
+    if (this.state.count === 10) return;
     this.setState((state) => ({ count: state.count + 1 }))
   }
   counterDecrement = () => {
+    if (this.state.count === 0) return;
     this.setState((state) => ({ count: state.count - 1 }))
   }
   counterReset = () => {
