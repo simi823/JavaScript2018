@@ -10,7 +10,7 @@ import React, { Component } from "react";
  *     API: http://ip-api.com/json
  * 2.) The second call should return detailed weather information for a given latitude and longitude.
  *     Replace [latitude] and [longitude] in the URL below with the results from the first API.
- *     API: https://api.darksky.net/forecast/6111b812232ce4bc2370f18ee3b64134/[latitude],[longitude]
+ *     API: http://dev.mydbc.co/demo/api.php?lat=[latitude]&long=[longitude]
  */
 
 class App extends Component {
