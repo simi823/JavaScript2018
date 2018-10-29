@@ -6,24 +6,24 @@
  */
 
 import React from "react";
-
+import { Link } from "react-router-dom";
 import customes from "../../data/customes";
 
 function CustomeCategories() {
   return (
     <div className="mt-3">
-      <h1>Custome Categories</h1>
+      <h1>Costume Categories</h1>
       <div className="row mt-5">
         {Object.entries(customes).map(([category, categoryInfo]) => {
           const key = `category-${category}`;
           const link = `/customes/${category}`;
           return (
             <div className="col text-center" key={key}>
-              <a href={link}>
+              <Link to={link}>
                 <img src={categoryInfo.image} alt="" />
-              </a>
+              </Link>
               <h2 className="lead">
-                <a href={link}>{category.toUpperCase()}</a>
+                <Link to={link}>{category.toUpperCase()}</Link>
               </h2>
             </div>
           );

@@ -17,7 +17,7 @@ function Customes(props) {
    * I am hardcoding the category here. This is the part you will need to change.
    * The category can be found somewhere in props.
    */
-  const category = "boys";
+  const category = props.match.params.category;
   const { customes: categoryCustomes } = customes[category];
 
   /**
@@ -29,7 +29,7 @@ function Customes(props) {
 
   return (
     <div>
-      <h1>Customes - {categoryTitleCase}</h1>
+      <h1>Costumes - {categoryTitleCase}</h1>
       <div className="row">
         {/**
          * Looping through the categories customes found in "src/data/customes.js" file and display them.
