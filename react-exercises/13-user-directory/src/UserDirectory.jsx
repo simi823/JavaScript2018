@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./UserDirectory.css";
-import users from "./users";
+//import users from "./users";
+import axios from 'axios';
 
 /**
  * PART I: To be completed at the beginning of class
@@ -19,9 +20,46 @@ import users from "./users";
 
 class UserDirectory extends Component {
   state = {
-    users: users
+    users: null,
+    loading: false,
+    isError: false
   };
+
+  search = userInput => {
+    const input = userInput.replace(" ", "");
+    this.setState({
+      users: this.state.users.filter(user => {
+        const name = user.name.first + user.name.last;
+        return name.match(input);
+      })
+    });
+  };
+
+  getUsers = () => {
+    this.setState({
+      loading: true,
+    });
+    axios
+		.get(`https://randomuser.me/api?results=500&inc=name,email,picture`)
+		.then(response => {
+      console.log(response);
+			this.setState({ users: response.data.results, loading: false });
+		})
+		.catch(error => {
+			this.setState({ isError: true });
+		});
+  };
+  
+  componentDidMount() {
+    console.log('componentDidMount');
+    this.getUsers();
+  };
+  
   render() {
+    if (this.state.users) {
+      console.log('I HAVE DATA!!!');
+    }
+    const {users} = this.state;
     return (
       <div className="UserDirectory">
         <div className="Search">
@@ -30,15 +68,16 @@ class UserDirectory extends Component {
             placeholder="Search..."
             aria-label="Search"
             className="search"
+            onChange={e => this.search(e.target.value)}
           />
         </div>
         <div className="UserDirectory-users">
-          {this.state.users.map((user, index) => {
-            const key = "user-" + index;
+         {users && users.map((user, index) => {
+            const key = 'user-' + index;
             const name =
               user.name.first[0].toUpperCase() +
               user.name.first.substring(1) +
-              " " +
+              ' ' +
               user.name.last[0].toUpperCase() +
               user.name.last.substring(1);
             return (
@@ -51,7 +90,7 @@ class UserDirectory extends Component {
                     <div>
                       <span className="h6">{name}</span>
                       <br />
-                      <a href={"mailto:" + user.email}>{user.email}</a>
+                      <a href={'mailto:' + user.email}>{user.email}</a>
                     </div>
                   </div>
                 </div>
@@ -75,5 +114,7 @@ class UserDirectory extends Component {
  * You will be using the Random User API. Use this URL:
  * https://randomuser.me/api?results=500&inc=name,email,picture
  */
+
+
 
 export default UserDirectory;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 /**
  * https://api.darksky.net/forecast/6111b812232ce4bc2370f18ee3b64134/[latitude],[longitude]
@@ -14,16 +15,63 @@ import React, { Component } from "react";
  */
 
 class App extends Component {
+  state = {
+    latitude: null,
+    longitude: null,
+    weatherReport: {},
+    loading: false,
+    isError: false
+  };
+
+  getLatLon = () => {
+    this.setState({
+      loading: true,
+    });
+    axios
+    .get(`http://dev.mydbc.co/demo/latlong.php`)
+    .then(response => {
+      this.setState({ 
+        latitude: response.data.lat, 
+        longitude: response.data.lon,
+        location: response.data.location,
+        loading: false });
+      let weather_url = "http://dev.mydbc.co/demo/api.php?lat=" + this.state.latitude + "&long=" + this.state.longitude
+      this.state.latitude && this.state.longitude && this.state.location &&
+      axios
+      .get(weather_url)
+      .then(response => {
+        console.log(response);
+        this.setState({
+          weatherReport: {
+            summary: response.data.currently.summary,
+            temp: response.data.currently.temperature,
+          }
+        })
+      })
+      .catch(error => {
+        this.setState({ isError: true });
+      });
+    })
+    .catch(error => {
+      this.setState({ isError: true });
+    });
+  };
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    this.getLatLon();
+  };
+
   render() {
     return (
       <div className="card">
         <div className="card-section">
           <div className="container">
-            <h3>New York, NY</h3>
+            <h3>{this.state.location}</h3>
             <p>
-              Scattered Showers
+              {this.state.weatherReport.summary}
               <br />
-              Temperature: 65.76&deg;F
+              Temperature: {this.state.weatherReport.temp}&deg;F
             </p>
           </div>
         </div>
