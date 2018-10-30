@@ -24,7 +24,7 @@ class App extends Component {
       text: userInput,
       href: 'https://airbnb.io/enzyme/docs/api/'
     };
-
+    console.log("Test");
     let newLink = [...links, userCreatedLink];
 
     this.setState({
