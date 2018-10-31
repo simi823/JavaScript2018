@@ -17,7 +17,7 @@ The portal will have 4 screens:
 
 Here are the steps to this this assignment:
 
-1. Before you write a single line of code, think about what your Redux actions are going to be.
+1. Before you write a single line of code, think about what your Redux actions are going to be and design the shape of your data. You will needd to store the [CMAs' list of nominees](https://www.billboard.com/articles/columns/country/8472339/cma-awards-nominees-2018) in your state.
 
 2. In you terminal or git bash, type:
 
