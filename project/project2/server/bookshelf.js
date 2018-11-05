@@ -82,21 +82,3 @@ module.exports = {
   findShelfForBook,
   updateBookshelf
 };
-
-// Testing
-/*
-Bookshelf = {
-  wantToRead: [{ title: "1", id: "1" }, { title: "2", id: "2" }],
-  currentlyReading: [{ title: "3", id: "3" }, { title: "5", id: "5" }],
-  read: [{ title: "4", id: "4" }]
-};
-
-console.log(getBookIds());
-console.log(hasBook("4"));
-console.log(getVolumeInfo("4"));
-console.log(updateBookshelf({ title: "7", id: "7" }, "read"));
-console.log(updateBookshelf({ title: "5", id: "5" }, "read"));
-console.log(updateBookshelf({ title: "1", id: "1" }, "none"));
-console.log(findShelfForBook("7"));
-console.log(findShelfForBook("10"));
-*/

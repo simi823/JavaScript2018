@@ -18,7 +18,7 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   const text =
-    'Its running!<br>To use the API, please refer to the <strong>Book API Details &amp; Requirements</strong> in the <a href="https://docs.google.com/document/d/1FDfNGZ0p0mV_3hUNi_STAbbl4iKF6TkizgT4Ex9n3Kc/edit#">Project Description</a>';
+    'Its running!<br>To use the API, please refer to the <strong>Making AJAX Requests</strong> in the <a href="https://docs.google.com/document/d/1FDfNGZ0p0mV_3hUNi_STAbbl4iKF6TkizgT4Ex9n3Kc/edit#">Project Description</a>';
   res.send(text);
 });
 
@@ -77,11 +77,11 @@ try {
     const { bookTitle } = req.params;
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}:intitle&key=${key}`
+        `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&maxAllowedMaturityRating=not-mature&maxResults=20&orderBy=relevance&fields=items(id%2CvolumeInfo)%2CtotalItems&key=${key}`
       )
       .then(response => {
         if (response.data.totalItems === 0) {
-          res.send({ book: [] });
+          res.send({ books: [] });
         } else {
           const books = response.data.items.map(book => {
             return {
