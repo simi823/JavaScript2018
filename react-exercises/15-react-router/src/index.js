@@ -9,9 +9,17 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 
 ReactDOM.render(
+<<<<<<< HEAD
     <BrowserRouter>
         <App />
     </BrowserRouter>, 
     document.getElementById("root")
 );
 
+=======
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+>>>>>>> d47b24d52e14b203c1e3889d9bf3ae4c4ce10f89
