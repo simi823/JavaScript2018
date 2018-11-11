@@ -4,7 +4,7 @@ You will be connecting a presentational React compoents to the Redux store. To b
 
 ```shell
 git pull origin upstream
-cd react-exercises/18-redux/src/README.md
+cd react-exercises/19-redux/src/README.md
 code .
 yarn install
 yarn start
