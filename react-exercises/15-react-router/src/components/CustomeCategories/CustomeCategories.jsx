@@ -7,10 +7,6 @@ stop the page from refreshing
  */
 
 import React from "react";
-<<<<<<< HEAD
-=======
-
->>>>>>> d47b24d52e14b203c1e3889d9bf3ae4c4ce10f89
 import { Link } from "react-router-dom";
 import customes from "../../data/customes";
 

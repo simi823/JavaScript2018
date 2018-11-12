@@ -17,10 +17,6 @@ function Customes(props) {
    * I am hardcoding the category here. This is the part you will need to change.
    * The category can be found somewhere in props.
    */
-<<<<<<< HEAD
-=======
-  console.log(props);
->>>>>>> d47b24d52e14b203c1e3889d9bf3ae4c4ce10f89
   const category = props.match.params.category;
   const { customes: categoryCustomes } = customes[category];
 
