@@ -1,10 +1,8 @@
 # Redux Challenge - CMA Awards
 
-You will be designing the state and building the redux part of a Country Music Awards (CMAs) voting portal.
+Using Redux Thunk, you will be performing a (fake) AJAX call to send a vote and you will show the voting selection in the UI.
 
-Before doing anything, be sure to get the latest changes from git with `git pull upstream master`.
-
-## Wednesday, Nov 14, 2018
+## Design
 
 [Watch a Video of the Prototype](https://www.screencast.com/t/1c0ejJFegjq)
 
@@ -15,6 +13,8 @@ The portal will have 4 screens:
 3. The nominee page, where the user will vote for the nominee that they want to win an award. This screen will repeat for each category when the user clicks on the "Next" button.
 4. A submit votes screen, where once finished voting, the user will click a button to send their votes to the Country Music Awards.
 
+## Back-end Requirements
+
 This will not be a part of today's assignment, but we will be adding the following API calls in the future. Plan for making these AJAX calls:
 
 - A login call. This will need a member ID and pin number.
@@ -22,35 +22,16 @@ This will not be a part of today's assignment, but we will be adding the followi
 - An AJAX call to send a vote. To make this call, you will need to send the category number and the array index of the nominee. See _src/constants/categories.json_.
 - A call to complete the vote. This will need the member ID.
 
-### Steps
+## Monday, Nov 19, 2018
 
-Here are the steps to this this assignment:
+Before starting the assignment, I recommend you take a look at both the _src/api.js_ file and the _src/reducer.js_ file, which have been completed for you.
 
-- Before you write a single line of code, think about what your Redux actions are going to be and design the shape of your data. You will need to store the [CMAs' list of nominees](https://www.billboard.com/articles/columns/country/8472339/cma-awards-nominees-2018) in your state.
+Open _src/constants/actionTypes.js_ and add the action types needed to make an AJAX call
 
-- In you terminal or git bash, type:
+The reducer has code already written for you, but code was commented so that it won't crash the app. Now that you have your action types, open _src/reducer.js_ and uncomment where needed.
 
-```shell
-cd react-exercises/20-cmas
-yarn install
-```
+Setup your AJAX action creators. Follow the instructions in _src/actions/voteActions.js_
 
-- Open the file _src/constants/actionTypes.js_ and create your action types
+Now you just need to update the UI so that it will both cast the users vote, display the results, and give feedback for AJAX errors. Open _src/components/Category/Category.jsx_ and read the instructions.
 
-- Open the file _src/actions.js_ and create your action creators.
-
-- Open the file and write your reducer case statements in _src/reducer.js_.
-
-You can write and run unit tests if you would like. A unit test file for the reducer, _test/reducer-test.js_, has already been created for you. You can run your tests with the debugger or command line. To run with the debugger, you must open Visual Studio Code from this folder.
-
-```
-code .
-```
-
-In your status bar on the bottom left, click on the play icon. Select "Mocha Tests" from the dropdown.
-
-Or you can just run over command line:
-
-```shell
-yarn test
-```
+Note that you can simulate AJAX errors by return "reject" instead of resolve in the fake ajax promise. See _react-exercises/21-cmas-thunk/src/api.js_

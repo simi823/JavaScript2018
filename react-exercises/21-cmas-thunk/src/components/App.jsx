@@ -1,8 +1,7 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import Signin from "./Signin/Signin";
-import CategoryList from "./CategoryList/CategoryList";
-import Category from "./Category/Category";
+import CategoryListContainer from "./CategoryList/CategoryListContainer.js";
+import CategoryContainer from "./Category/CategoryContainer";
 import SubmitVotes from "./SubmitVotes/SubmitVotes";
 import logo from "./52-CMA-Awards-Logo.jpg";
 
@@ -16,9 +15,9 @@ function App() {
       </header>
       <main className="container">
         <Switch>
-          <Route exact path="/" component={Signin} />
-          <Route exact path="/categories" component={CategoryList} />
-          <Route path="/category/:id/" component={Category} />
+          <Route exact path="/" component={CategoryListContainer} />
+          <Route exact path="/categories" component={CategoryListContainer} />
+          <Route path="/category/:id/" component={CategoryContainer} />
           <Route path="/vote" component={SubmitVotes} />
         </Switch>
       </main>

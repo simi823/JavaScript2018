@@ -1,48 +1,50 @@
-/**
- * Import action types from "src/constants/actionTypes.js"
- */
-
 import * as types from "./constants/actionTypes";
 
 const reducer = (
   state = {
-    /* Define default state here */
     memberId: null,
-    votes: {},
-    categories: {}
+    votes: {}
   },
   action
 ) => {
   switch (action.type) {
-    /**
-     * Create a case for each action that returns a new state
-     */
-    case types.SIGNIN:
-      return {
-        ...state,
-        memberId: action.memberId,
-        isLoggedIn: true
-      };
-    case types.FETCH_ALL_NOMINEES: {
+    case types.FETCH_ALL_NOMINEES_FULFILLED: {
       const { categories } = action.payload;
       return {
         ...state,
-        categories
+        categories,
+        isLoading: false,
+        hasError: false
       };
     }
-    case types.VOTE: {
+    /**
+     * Uncomment the case below
+     *
+    case types.VOTE_FULFILLED: {
       return {
         ...state,
         votes: {
           ...state.votes,
           [action.categoryId]: action.nomineeIndex
-        }
+        },
+        isLoading: false,
+        hasError: false
       };
     }
-    case types.COMPLETE_VOTING:
+    */
+    case types.FETCH_ALL_NOMINEES_PENDING:
+      // case types.VOTE_PENDING: // Uncomment me
       return {
         ...state,
-        isCompleted: true
+        isLoading: true,
+        hasError: false
+      };
+    case types.FETCH_ALL_NOMINEES_REJECTED:
+      // case types.VOTE_REJECTED: // Uncomment me
+      return {
+        ...state,
+        isLoading: false,
+        hasError: true
       };
     default:
       return state;

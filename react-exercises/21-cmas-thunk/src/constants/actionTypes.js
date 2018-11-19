@@ -1,8 +1,7 @@
+export const FETCH_ALL_NOMINEES_PENDING = "FETCH_ALL_NOMINEES_PENDING";
+export const FETCH_ALL_NOMINEES_FULFILLED = "FETCH_ALL_NOMINEES_FULFILLED";
+export const FETCH_ALL_NOMINEES_REJECTED = "FETCH_ALL_NOMINEES_REJECTED";
+
 /**
- * Create and export your action types here
- * @example export const ADD_TODO = 'ADD_TODO';
+ * Create action types for when the user will vote
  */
-export const SIGNIN = "SIGNIN";
-export const FETCH_ALL_NOMINEES = "FETCH_ALL_NOMINEES";
-export const VOTE = "VOTE";
-export const COMPLETE_VOTING = "COMPLETE_VOTING";
