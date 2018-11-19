@@ -1,19 +1,41 @@
-/**
- * Import action types from "src/constants/actionTypes.js"
- */
-
+import * as type from './constants/actionTypes';
 import categories from "./constants/categories";
 
 const reducer = (
   state = {
-    /* Define default state here */
+    categories: categories,
+    voteCategory: null,
+    categoryID: null,
+    memberID: 1234,
+    PIN: 123,
+    votedList: []
   },
   action
 ) => {
   switch (action.type) {
-    /**
-     * Create a case for each action that returns a new state
-     */
+    case type.LOGIN:
+      return {
+        ...state,
+        memberID: state.memberID,
+        PIN: state.PIN
+      }
+    case type.GET_STARTED:
+      return {
+        ...state,
+        categories: state.categories
+      }
+    case type.VOTE:
+      return {
+        ...state,
+        voteCategory: state.voteCategory,
+        categoryID: state.categoryID,
+        votedList: state.votedList
+      }
+    case type.SUBMIT_VOTES:
+      return {
+        ...state,
+        votedList: state.votedList
+      }
     default:
       return state;
   }
