@@ -47,11 +47,17 @@ class Category extends Component {
               maxCategoryId={Object.values(this.props.categories).length}
             />
           </div>
+          <div className="mt-3">
+            {/**
+             * If there is an AJAX failure with voting, display the error message
+             * "This is embarassing. We were unable to save your vote. Please try again later."
+             */}
+          </div>
         </div>
       );
     } else {
       /**
-       * Add:
+       * For the categories request, display
        * - Loading if it is loading
        * - Error component if there is an error. The error message should be:
        * "This is embarassing. We were unable to save your vote. Please try again later."

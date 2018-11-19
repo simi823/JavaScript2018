@@ -4,10 +4,12 @@ import Category from "./Category";
 import { fetchAllNominees } from "../../actions/fetchAllNomineesActions";
 import { vote } from "../../actions/voteActions";
 
-function mapPropsToState({ categories, votes }) {
+function mapPropsToState({ categories, votes, isLoading, hasError }) {
   return {
     categories,
-    votes
+    votes,
+    isLoading,
+    hasError
   };
 }
 
