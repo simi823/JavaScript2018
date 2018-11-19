@@ -34,7 +34,7 @@ class Category extends Component {
                 <Nominee
                   key={key}
                   nominee={nominee}
-                  onClick={/* Complete Me */}
+                  onClick={/* Replace null with function */ null}
                   isSelected={isSelected}
                 />
               );
