@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import MainLayout from "../Layouts/MainLayout";
 import Nominee from "./Nominee.jsx";
 import PrevCategoryButton from "./PrevCategoryButton";
 import NextCategoryButton from "./NextCategoryButton";
@@ -15,7 +16,7 @@ class Category extends Component {
       const categoryId = parseInt(this.props.match.params.id);
       const { category, nominees } = this.props.categories[categoryId];
       return (
-        <div>
+        <MainLayout>
           <h1 className="h2 text-center">{category}</h1>
           <div className="card-group mb-2">
             {nominees.map((nominee, index) => {
@@ -53,16 +54,19 @@ class Category extends Component {
              * "This is embarassing. We were unable to save your vote. Please try again later."
              */}
           </div>
-        </div>
+        </MainLayout>
       );
     } else {
-      /**
-       * For the categories request, display
-       * - Loading if it is loading
-       * - Error component if there is an error. The error message should be:
-       * "This is embarassing. We were unable to save your vote. Please try again later."
-       */
-      return <div />;
+      return (
+        <MainLayout>
+          {/**
+           * For the categories request, display
+           * - Loading if it is loading
+           * - Error component if there is a server failure. The error message should be:
+           * "This is embarassing. We were unable to save your vote. Please try again later."
+           */}
+        </MainLayout>
+      );
     }
   }
 }

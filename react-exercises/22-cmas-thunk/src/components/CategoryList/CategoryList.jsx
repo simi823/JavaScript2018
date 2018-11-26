@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import MainLayout from "../Layouts/MainLayout";
 import Loading from "../Widgets/Loading";
 import ErrorMessage from "../Widgets/ErrorMessage";
 
@@ -10,7 +11,7 @@ class CategoryList extends Component {
   }
   render() {
     return (
-      <div className="text-center">
+      <MainLayout className="text-center">
         <p className="mb-4">
           <Link to="/category/1" className="btn btn-outline-primary btn-lg">
             Start Voting
@@ -24,18 +25,14 @@ class CategoryList extends Component {
             are hard at work trying to fix it. Please come back later.
           </ErrorMessage>
         )}
-        <ul className="list-group">
+        <ul className="list-unstyled">
           {this.props.categories &&
             Object.entries(this.props.categories).map(([index, category]) => {
               const key = "category-" + index;
-              return (
-                <li className="list-group-item" key={key}>
-                  {category.category}
-                </li>
-              );
+              return <li key={key}>{category.category}</li>;
             })}
         </ul>
-      </div>
+      </MainLayout>
     );
   }
 }

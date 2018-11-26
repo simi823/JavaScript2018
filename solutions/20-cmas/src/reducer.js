@@ -22,8 +22,7 @@ const reducer = (
     case types.SIGNIN:
       return {
         ...state,
-        memberId: action.memberId,
-        isLoggedIn: true
+        memberId: action.memberId
       };
     case types.FETCH_ALL_NOMINEES: {
       const { categories } = action.payload;

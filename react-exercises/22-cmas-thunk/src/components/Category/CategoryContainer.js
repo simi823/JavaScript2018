@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Category from "./Category";
 
 import { fetchAllNominees } from "../../actions/fetchAllNomineesActions";
-import { vote } from "../../actions/voteActions";
+import { vote } from "../../actions/votingActions";
 
 function mapPropsToState({ categories, votes, isLoading, hasError }) {
   return {

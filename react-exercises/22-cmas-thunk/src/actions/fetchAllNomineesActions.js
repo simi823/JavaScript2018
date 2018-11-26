@@ -1,6 +1,6 @@
 import * as types from "../constants/actionTypes";
 
-import { fetchAllNomineesRequest } from "../api";
+import { fetchAllNomineesRequest } from "../services/api";
 
 const ajaxLoading = () => {
   return {
